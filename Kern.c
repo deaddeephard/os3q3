@@ -3,10 +3,10 @@
 #include <linux/init.h>
 #include <linux/sched.h>
 #include <linux/sched/signal.h>
-
+static int pid;
+module_param(pid , int , 0644);
  int my_module_init(void)
 {
-	int pid = 1;
 	struct task_struct *task;
 	for_each_process(task){
 		if(task->pid ==pid){
